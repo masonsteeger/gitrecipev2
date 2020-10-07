@@ -478,8 +478,6 @@ const AddRecipe = (props) => {
     return(
             <div className="form-container">
               <form onSubmit={props.handleSubmit}>
-                <label htmlFor="author">Author</label><br />
-                <input id="author" type="text" onChange={props.handleChange} className="form-control"/><br />
                 <label htmlFor="name">Name</label>
                 <br />
                 <input id="name"
@@ -615,7 +613,7 @@ class App extends React.Component {
           }
 
           handleChange = event =>{
-            this.setState( { [event.target.id]: event.target.value, author: currentUser })
+            this.setState( { [event.target.id]: event.target.value, author: currentUser})
         }
           handleSubmit = (event) => {
             event.preventDefault();
@@ -625,7 +623,6 @@ class App extends React.Component {
               .then(response => this.setState(
                 {
                     recipes: response.data,
-                    author: '',
                     name: '',
                     prepTime: '',
                     cookTime: '',
