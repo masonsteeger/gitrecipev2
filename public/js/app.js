@@ -34,7 +34,7 @@ class SearchBar extends React.Component {
 
 
 
-            <form onSubmit={() => {this.props.handleSearchSubmit(event, filteredTags)}} className="form-inline my-2 my-lg-0">
+            <form onSubmit={() => {this.props.handleSearchSubmit(event, filteredTags)}} className="form-inline my-2 my-lg-0" id="search-bar">
                 <input className="form-control mr-sm-2"
                        type="text"
                        value={this.state.search}
@@ -42,6 +42,7 @@ class SearchBar extends React.Component {
                        aria-label="Search"
                 />
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
             </form>
         )
     }
@@ -228,13 +229,8 @@ const Nav = (props) => {
 </div>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{currentUser == null ? <text>Log In/Sign Up</text> : <text>Welcome {currentUser}!</text>}
-                </a>
+            {currentUser == null ? null : <text id='welcome'>Welcome {currentUser}!</text>}
 
-              </li>
-            </ul>
 
             <SearchBar recipes={props.recipes} handleSearchSubmit={props.handleSearchSubmit}/>
           </div>
